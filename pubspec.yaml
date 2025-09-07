@@ -1,5 +1,5 @@
 name: base_cubit_widget
-description: "A new Flutter project."
+description: "It is a package derived from Bloc(Cubit) that aims to reduce code repetition."
 publish_to: 'none'
 
 

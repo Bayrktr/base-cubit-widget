@@ -1,10 +1,9 @@
+import 'package:base_cubit_widget/package/cubit/base_state.dart';
+import 'package:base_cubit_widget/package/cubit/model/error/base_error_data_model.dart';
+import 'package:base_cubit_widget/package/cubit/model/initial/base_initial_data_model.dart';
+import 'package:base_cubit_widget/package/cubit/model/loading/base_loading_data_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-
-import 'base_state.dart';
-import 'model/error/base_error_data_model.dart';
-import 'model/initial/base_initial_data_model.dart';
-import 'model/loading/base_loading_data_model.dart';
 
 abstract class BaseCubit<T, K, M> extends Cubit<BaseState<T, K, M>> {
   BaseCubit(super.state) {
