@@ -14,7 +14,16 @@ abstract class BaseCubit<T, K, M> extends Cubit<BaseState<T, K, M>> {
   Future<void> onInit();
 
   void emitInitial(T data) {
-    emit(BaseState.initial(data: BaseInitialDataModel(data: data)));
+    final model = (initialData == null)
+        ? BaseInitialDataModel(data: data)
+        : initialData!.copyWith(
+            data: data,
+          );
+    emit(
+      BaseState.initial(
+        data: model,
+      ),
+    );
   }
 
   void emitLoading({
@@ -22,13 +31,20 @@ abstract class BaseCubit<T, K, M> extends Cubit<BaseState<T, K, M>> {
     String? message,
     M? data,
   }) {
+    final model = (loadingData == null)
+        ? BaseLoadingDataModel(
+            loadingPercentage: percentage,
+            message: message,
+            data: data,
+          )
+        : loadingData!.copyWith(
+            loadingPercentage: percentage,
+            message: message,
+            data: data,
+          );
     emit(
       BaseState.loading(
-        data: BaseLoadingDataModel(
-          loadingPercentage: percentage,
-          message: message,
-          data: data,
-        ),
+        data: model,
       ),
     );
   }
@@ -38,13 +54,20 @@ abstract class BaseCubit<T, K, M> extends Cubit<BaseState<T, K, M>> {
     String? message,
     K? data,
   }) {
+    final model = (errorData == null)
+        ? BaseErrorDataModel(
+            statusCode: statusCode,
+            message: message,
+            data: data,
+          )
+        : errorData!.copyWith(
+            statusCode: statusCode,
+            message: message,
+            data: data,
+          );
     emit(
       BaseState.error(
-        data: BaseErrorDataModel(
-          statusCode: statusCode,
-          message: message,
-          data: data,
-        ),
+        data: model,
       ),
     );
   }
