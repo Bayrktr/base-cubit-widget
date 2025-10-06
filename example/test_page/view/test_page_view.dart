@@ -17,7 +17,7 @@ class TestPageView extends StatelessWidget {
         bloc: viewModel,
         blocType: BlocType.both,
         initialBuilder: (state) {
-          return Scaffold(
+          return const Scaffold(
             body: Text('Initial Durum'),
           );
         },

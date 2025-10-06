@@ -28,14 +28,12 @@ bool Function(BaseState<T, K, M> previous, BaseState<T, K, M> current);
 class BaseCubitWidget<T, K, M> extends StatelessWidget
     with _BaseCubitWidgetMixin<T, K, M> {
   BaseCubitWidget({
-    super.key,
-    required this.bloc,
+    required this.bloc, required this.initialBuilder, super.key,
     this.blocType = BlocType.builder,
     this.initialListener,
     this.loadingListener,
     this.errorListener,
     this.listenWhen,
-    required this.initialBuilder,
     this.errorBuilder,
     this.loadingBuilder,
     this.child,

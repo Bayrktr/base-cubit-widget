@@ -9,7 +9,7 @@ class TestPageViewmodel extends BaseCubit<TestPageInitial, Object, Object> {
   TestPageViewmodel()
     : super(
         BaseState.initial(
-          data: BaseInitialDataModel(data: TestPageInitial()),
+          data: BaseInitialDataModel(data: const TestPageInitial()),
         ),
       );
 
@@ -19,7 +19,7 @@ class TestPageViewmodel extends BaseCubit<TestPageInitial, Object, Object> {
   }
 
   Future<void> updateTestResponseStatus() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     emitInitial(
       initialModel!.copyWith(
         testStatus: TestResponseDone(),
