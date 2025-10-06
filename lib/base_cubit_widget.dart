@@ -1,4 +1,3 @@
-library base_cubit_widget;
 
 export 'package/cubit/base_cubit.dart';
 export 'package/cubit/base_state.dart';

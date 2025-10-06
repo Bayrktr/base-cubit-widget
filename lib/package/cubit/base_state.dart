@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-import 'model/error/base_error_data_model.dart';
-import 'model/initial/base_initial_data_model.dart';
-import 'model/loading/base_loading_data_model.dart';
+import 'package:base_cubit_widget/package/cubit/model/error/base_error_data_model.dart';
+import 'package:base_cubit_widget/package/cubit/model/initial/base_initial_data_model.dart';
+import 'package:base_cubit_widget/package/cubit/model/loading/base_loading_data_model.dart';
 
 /// T for initial
 /// K for error
@@ -35,9 +35,9 @@ sealed class BaseState<T, K, M> extends Equatable{
 }
 
 class BaseInitialModel<T, K, M> extends BaseState<T, K, M> {
-  final BaseInitialDataModel<T>? data;
 
   const BaseInitialModel({this.data});
+  final BaseInitialDataModel<T>? data;
 
   T? get model => data?.data;
 
@@ -52,9 +52,9 @@ class BaseInitialModel<T, K, M> extends BaseState<T, K, M> {
 }
 
 class BaseLoadingModel<T, K, M> extends BaseState<T, K, M> {
-  final BaseLoadingDataModel<M>? data;
 
   BaseLoadingModel({this.data});
+  final BaseLoadingDataModel<M>? data;
 
   @override
   List<Object?> get props => [data];
@@ -68,9 +68,9 @@ class BaseLoadingModel<T, K, M> extends BaseState<T, K, M> {
 }
 
 class BaseErrorModel<T, K, M> extends BaseState<T, K, M> {
-  final BaseErrorDataModel<K>? data;
 
   BaseErrorModel({this.data});
+  final BaseErrorDataModel<K>? data;
 
   @override
   List<Object?> get props => [data];
